@@ -1,4 +1,4 @@
-package com.gq.request;
+package com.gq.controller;
 
 public class Address {
     private String province;

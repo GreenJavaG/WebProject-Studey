@@ -1,10 +1,8 @@
-package com.gq.request;
+package com.gq.controller;
 
+import com.gq.uitl.Result;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
@@ -14,7 +12,7 @@ import java.util.List;
 /*
 * 利用postman模拟从get或post请求中获取不同参数接收
 * */
-@RestController
+@RestController//@RestController=@Controller + @ResponseBody（将方法返回值直接响应，如果返回值类型是 实体对象/集合，将会转换为JSON格式响应）
 public class RequestController {
     //1、原始方式
     @RequestMapping("/simpleParam1")
@@ -66,5 +64,11 @@ public class RequestController {
         System.out.println(user);
 
         return "OK";
+    }
+    //路径参数：通过请求URL直接传递参数，使用{...}来标识该路径参数，需要使用@PathVariable获取路径参数
+    @RequestMapping("/pathParam/{id}/{name}")
+    public String pathParam(@PathVariable Integer id,@PathVariable String name){
+        System.out.println(name+":"+id);
+        return "OKs";
     }
 }
