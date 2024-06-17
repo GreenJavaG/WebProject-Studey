@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>员工信息</title>
+</head>
+<body>
+    <h1 align="center">员工信息列表展示</h1>
+    <div id="app">
+        <el-table :data="tableData" style="" stripe border>
+            <el-table-column prop="name" lable="姓名" align="center" min-width="20%"></el-table-column>
+            <el-table-column prop="age" lable="年龄" align="center" min-width="20%"></el-table-column>
+            <el-table-column lable="图像" align="center" min-width="20%">
+                <template slot-scope="scope">
+                    <el-image :src="scope.row.image" style=""></el-image>
+                </template>
+            </el-table-column>
+        </el-table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+三层架构：控制层-业务逻辑层-数据层
+软件设计原则：高内聚低耦合
+使用spring来达到高内聚低耦合
+    控制反转：（IOC）对象的创建控制权由程序自身转移到外部（容器），这种思想称为控制反转
+    依赖注入：（DI）容器为应用程序提供运行时，所依赖的资源，称之为依赖注入
+    Bean对象：IOC容器中创建、管理的对象，称之为bean
+@Component:将当前类交给IOC容器管理，称为IOC容器中的bean（不属于以下三类时，用此注解）
+@Repository:@Component的衍生注解，标注在数据访问类上（由于与mybatis整合，用的少）
+@Service:@Component的衍生注解，标注在业务类上
+@Controller:@Component的衍生注解，标注在控制器类上
+注意：1、声明bean的时候，可以通过value属性指定bean的名字，如果没有指定，默认为类名首字母小写
+     2、使用以上四个注解都可以声明bean，但是在springboot集成web开发中，声明控制器bean只能用@Controller
+Bean组件扫描：
+    前面声明bean的四大注解，要想生效，还需要被组件扫描注解@ComponentScan扫描（其中主运行文件SpringbootWebStudyApplication中@SpringBootApplication中已经包含@ComponentScan，但若要扫描
+    文件没有与主文件在同一根目录下就无法扫描到，需要在主文件SpringbootWebStudyApplication重新加个@ComponentScan({"*","com.*"...})进行包扫描）
+@Autowired:运行时，IOC容器会提供该类型的bean对象，并赋值给该变量——依赖注入（默认按照类型来装配，如要找EmpDao类型的bean对象），如果存在多个相同类型的bean会报错
+    三种解决方法：
+    @Primary:存在多个相同类型的bean对象，加了该注解将会让当前类的bean对象生效
+    @Qualifier:存在多个相同类型的bean对象，在Autowired注解上加@Qualifier("empServiceA")
+    @Resource:存在多个相同类型的bean对象，不使用Autowired改用当前注解（是默认按照名称进行注入），@Resource(name ="empServiceB")

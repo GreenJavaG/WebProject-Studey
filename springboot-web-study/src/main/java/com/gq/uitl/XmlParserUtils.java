@@ -5,6 +5,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,9 +38,17 @@ public class XmlParserUtils {
                 String gender = element.element("gender").getText();
                 //获取 job 属性
                 String job = element.element("job").getText();
+
+                //组装数据
+                Constructor<T> constructor = targetClass.getDeclaredConstructor(String.class, Integer.class, String.class, String.class, String.class);
+                constructor.setAccessible(true);
+                T object = constructor.newInstance(name, Integer.parseInt(age), image, gender, job);
+                list.add(object);
             }
+
         }catch (Exception e){
             e.printStackTrace();
         }
+        return list;
     }
 }
