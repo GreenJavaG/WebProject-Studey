@@ -8,12 +8,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot-web-study" />
+        <module name="tlias-web-management" />
+        <module name="demo" />
         <module name="springboot-mybatis-quick" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="11" />
       <module name="springboot-mybatis-quick" target="11" />
       <module name="springboot-web-study" target="11" />
+      <module name="tlias-web-management" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

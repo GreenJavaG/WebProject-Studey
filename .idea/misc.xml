@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/springboot-web-study/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-mybatis-quick/pom.xml" />
+        <option value="$PROJECT_DIR$/tlias-web-management/pom.xml" />
       </list>
     </option>
   </component>

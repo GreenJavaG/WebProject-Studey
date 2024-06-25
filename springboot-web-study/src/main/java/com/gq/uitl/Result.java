@@ -3,7 +3,7 @@ package com.gq.uitl;
 /*
 * 用来同一相应数据的格式
 * */
-public class Result {
+public class  Result {
     //响应码，1代表成功；0代表失败
     private Integer code;
     //提示信息
