@@ -18,6 +18,7 @@ import java.util.List;
 @Slf4j//日志简化注解
 @RestController
 @RequestMapping("/depts")
+/*@CrossOrigin*/
 public class DeptController {
     //记录日志
     //private static Logger log = LoggerFactory.getLogger(DeptController.class);

@@ -7,8 +7,10 @@ import com.gq.pojo.Emp;
 import com.gq.pojo.PageBean;
 import com.gq.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -28,14 +30,27 @@ public class EmpServiceImpl implements EmpService {
     }*/
     //使用分页插件进行分页
     @Override
-    public PageBean getPage(Integer page,Integer pageSize) {
+    public PageBean getPage(String name,
+                            Short gender,
+                            LocalDate begin,
+                            LocalDate end, Integer page, Integer pageSize) {
         //1、设置分页参数
         PageHelper.startPage(page,pageSize);
         //2、执行查询
-        List<Emp> empList = empMapper.list();
+        List<Emp> empList = empMapper.alllist(name,gender,begin,end);
         Page<Emp> p = (Page<Emp>) empList;
         //3、封装PageBean对象
         PageBean pageBean = new PageBean(p.getTotal(),p.getResult());
         return pageBean;
+    }
+
+    @Override
+    public void deleteByIds(int[] ids) {
+        empMapper.deleteByIds(ids);
+    }
+
+    @Override
+    public void addEmp(Emp emp) {
+        empMapper.addEmp(emp);
     }
 }
