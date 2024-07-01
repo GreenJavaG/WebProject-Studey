@@ -23,4 +23,32 @@
             #{id}
         </foreach>
     </delete>
+
+    <update id="updateById">
+        update emp
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="gender != '' and gender != null">
+                gender = #{gender},
+            </if>
+            <if test="image != null and image != ''">
+                image = #{image},
+            </if>
+            <if test="job != null and job != ''">
+                job = #{job},
+            </if>
+            <if test="entrydate != null">
+                entrydate = #{entrydate},
+            </if>
+            <if test="deptId != '' and deptId != null">
+                dept_id = #{deptId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

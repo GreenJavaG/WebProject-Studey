@@ -44,6 +44,10 @@ public class EmpServiceImpl implements EmpService {
         return pageBean;
     }
 
+    /**
+     *
+     * @param ids
+     */
     @Override
     public void deleteByIds(int[] ids) {
         empMapper.deleteByIds(ids);
@@ -52,5 +56,16 @@ public class EmpServiceImpl implements EmpService {
     @Override
     public void addEmp(Emp emp) {
         empMapper.addEmp(emp);
+    }
+
+    @Override
+    public Emp getById(Integer id) {
+        Emp emp = empMapper.selectById(id);
+        return emp;
+    }
+
+    @Override
+    public void update(Emp emp) {
+        empMapper.updateById(emp);
     }
 }
