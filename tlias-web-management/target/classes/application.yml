@@ -1,0 +1,40 @@
+#yml或yaml格式的配置文件更简洁方便
+
+#应用服务 WEB 访问端口
+server:
+  port: 8080
+
+#定义对象/Map集合
+user:
+  name: Tom #属性后面必须空一格
+  age: 18
+#定义数组/List/Set
+hobby:
+  - java
+  - c
+  - game
+
+#数据库连接信息
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis_quick
+    username: root
+    password: 123456
+  servlet:
+    multipart:
+      max-file-size: 10MB #配置单个文件上传大小限制（不设置默认1MB）
+      max-request-size: 100MB #配置单个请求最大大小的限制（一次请求中是可以上传多个文件）
+#配置mybatis
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #配置日志，指定输出到控制台
+    map-underscore-to-camel-case: true #开启驼峰命名，处理下划线映射到实体
+
+#自定义的阿里云OSS配置信息
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    accessKeyId: 
+    accessKeySecret: 
+    bucketName: web-gq-tlias
