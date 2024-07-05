@@ -21,6 +21,6 @@ public class Result {
         return new Result(1, "success",null);
     }
     public static Result err(String msg){
-        return new Result(2, msg,null);
+        return new Result(0, msg,null);
     }
 }
