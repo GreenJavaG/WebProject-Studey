@@ -25,7 +25,7 @@ public class LoginController {
     private EmpService empService;
 
     @PostMapping("/login")
-    public Result login(HttpServletResponse response,HttpServletRequest request,@RequestBody Emp emp){
+    public Result login(@RequestBody Emp emp){
         log.info("输入的登录信息为，{}",emp);
         Emp emp1 = empService.login(emp);
         log.info("查询到的用户信息为：{}",emp1);

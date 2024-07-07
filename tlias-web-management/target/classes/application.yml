@@ -38,3 +38,8 @@ aliyun:
     accessKeyId: 
     accessKeySecret: 
     bucketName: web-gq-tlias
+
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+#开启事务管理日志

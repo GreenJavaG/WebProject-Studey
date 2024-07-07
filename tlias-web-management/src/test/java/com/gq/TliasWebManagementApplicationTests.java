@@ -36,7 +36,7 @@ class TliasWebManagementApplicationTests {
     void testParseJwt(){
         Claims claims = Jwts.parser()
                 .setSigningKey("itheima")
-                .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidG9tIiwiaWQiOjEsImV4cCI6MTcyMDE3MTA4NH0.Bflt9hmvPqt4d23ZFzCgJF6rwrmc7CIxPBJFpIwtN50")
+                .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoi5p2O57qiIiwiaWQiOjIwLCJ1c2VybmFtZSI6ImxpaG9uZyIsImV4cCI6MTcyMDI5NTQzMH0.LDGFUUY3KUV6vdk7UnWNbY8B9b7xuO2z6BFQx1GgqAw")
                 .getBody();
         System.out.println("解析的数据为："+claims);
     }
