@@ -7,14 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springboot-web-study" />
         <module name="tlias-web-management" />
-        <module name="demo" />
         <module name="springboot-mybatis-quick" />
+        <module name="springboot-web-study" />
+        <module name="demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="11" />
+      <module name="sky-common" target="1.8" />
+      <module name="sky-pojo" target="1.8" />
+      <module name="sky-server" target="1.8" />
+      <module name="sky-take-out" target="1.8" />
       <module name="springboot-mybatis-quick" target="11" />
       <module name="springboot-web-study" target="11" />
       <module name="tlias-web-management" target="11" />
@@ -22,6 +26,9 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sky-common" options="-parameters" />
+      <module name="sky-pojo" options="-parameters" />
+      <module name="sky-server" options="-parameters" />
       <module name="springboot-mybatis-quick" options="" />
       <module name="springboot-web-study" options="-parameters" />
     </option>

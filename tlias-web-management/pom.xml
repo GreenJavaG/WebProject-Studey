@@ -7,10 +7,18 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>tlias-web-management</name>
     <description>Demo project for Spring Boot</description>
+    <!--规定父工程依赖，如果多个子工程都需要相同依赖，可以将相同依赖导入父工程，再继承父工程依赖-->
+    <!--<parent>
+        <groupId>com.gq</groupId>
+        <artifactId>springboot-mybatis-quick</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../springboot-mybatis-quick/pom.xml</relativePath>&lt;!&ndash;父工程的pom文件位置&ndash;&gt;
+    </parent>-->
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--是给dependencyManagement中的版本进行统一管理的-->
         <spring-boot.version>2.6.13</spring-boot.version>
     </properties>
     <dependencies>
@@ -87,6 +95,7 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
     </dependencies>
+    <!--定义版本，但不会导入依赖，是给上方dependencies中依赖规定版本的-->
     <dependencyManagement>
         <dependencies>
             <dependency>
